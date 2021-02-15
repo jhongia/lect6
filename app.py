@@ -17,8 +17,14 @@ def hello_world():
         "index.html",
         topic=keyword_query,
         headlines=article_data['headlines'],
-        snippets=article_data['snippets'],
+        snippets=article_data['snippets']
     )
+
+@app.route('/search/<user_text>')
+def userText(user_text):
+    article_data = get_article_data(user_text)
+    headlines=article_data['headlines']
+    return {'headlines': headlines}
 
 app.run(
     host=os.getenv('IP', '0.0.0.0'),

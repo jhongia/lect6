@@ -3,19 +3,24 @@
 
 <head>
     <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
+    <script type="text/javascript" src="/static/script.js"></script>
 </head>
 
 <body>
+    <input type="text" id="name" name="name" required
+       minlength="4" maxlength="8" size="10">
+    <button id="myCoolButton">Click here!</button>
     <h1>What's being reported about {{ topic }}?</h1>
-    <div class='container'>
+    <div id='headlinesDiv' class='container'>
         {% for i in range(10) %}
-        <div class='item'>
+        <div id='newDiv' class='item'>
             <p><b>{{ headlines[i] }}</b></p>
             <p>{{ snippets[i] }}</p>
         </div>
         {% endfor %}
     </div>
-
+    
+    
 </body>
 
 </html>
